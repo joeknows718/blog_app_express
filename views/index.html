@@ -1,0 +1,9 @@
+
+<h1>{{ title }}</h1>
+
+{{#each ideas}}
+	<p>
+		<a href="/article/{{id}}">{{title}}</a><br/>
+		Published: {{ published }}
+	</p>
+{{/each}}

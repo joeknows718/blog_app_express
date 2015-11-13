@@ -1,0 +1,15 @@
+{
+  "name": "special_redo",
+  "version": "1.0.0",
+  "description": "'idea app'",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JoeC718",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "hbs": "^4.0.0"
+  }
+}
