@@ -1,4 +1,4 @@
-require('./database');
+var db = require('./database');
 var express = require('express');
 var app = express(); //loads express functions & makes them available  for your app 
 var hbs = require('hbs'); 
@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var nodeMailer = require('nodemailer');
 var routes = require('./routes/routes');
 var ideaEngine = require('./ideas');
-var 
 
 
  // initialize express 
