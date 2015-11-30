@@ -1,23 +1,63 @@
 var express = require('express');
-var ideaEngine = require('../ideas');
 var nodemailer = require('nodemailer');
-
+var mongoose = require('mongoose')
+var Ideas = mongoose.model('ideas')
 
 var routes = express.Router(); 
 
 
 routes.get('/', function(req, res){
-	res.render('index', { title : 'My Ideas', ideas : ideaEngine.getIdeas()});
+	Ideas.find(function(err, ideas){
+		console.log(ideas);
+		res.render('index', { title : 'My Ideas', ideas: ideas});
+	}).sort({date: -1});;
 });
+
+routes.post('/', function(req, res){
+	new Ideas({
+		title: req.body.title,
+		body: req.body.body
+	}).save(function(err, idea){
+		console.log(idea);
+		res.redirect('/');
+	})
+})
 
 routes.get('/about', function(req, res){
 	res.render('about', {title:'About', description:'This is a page about me!'});
 });
 
 routes.get('/article/:id', function(req, res){
-	var idea = ideaEngine.getOneIdea(req.params.id);
-	res.render('article', {title: idea.title, idea:idea});
+	Ideas.findById(req.params.id, function(err, idea){
+		console.log(idea);
+		res.render('article', {title: idea.title, idea:idea});
+	});
+	
 });
+
+routes.get('/article/:id/edit', function(req, res){
+	Ideas.findById(req.params.id, function(err, idea){
+		console.log(idea);
+		res.render('edit', {title: idea.title, idea:idea});
+	});
+});
+
+routes.post('/article/:id/save', function(req, res){
+	Ideas.update({ _id: req.params.id }, {
+		title: req.body.title,
+		body: req.body.body,
+	}, function(error, idea){
+		console.log(idea);
+		res.redirect('/article/' + req.params.id)
+	});
+});
+
+routes.get('/article/:id/delete', function(req, res){
+	Ideas.remove({ _id: req.params.id }, function(err){
+		res.redirect('/')
+	});
+});
+
 
 routes.get('/contact', function(req, res){
 	res.render('contact', {title:'Contact Us', page:'contact'});
