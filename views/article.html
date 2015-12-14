@@ -6,20 +6,9 @@ Published {{ idea.date }}
 	{{ idea.body }}
 </p>
 
+{{#if user }}
 <div>
 	<a href="/article/{{idea.id}}/edit"><button type="button" class="btn btn-primary">Edit</button></a>
-	<a href="/article/{{idea.id}}/delete"><button type="button" class="btn btn-danger" onclick="return(confDelete());">Delete</button></a>
+	<a href="/article/{{idea.id}}/delete"><button type="button" class="btn btn-danger" >Delete</button></a>
 </div>	
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		function confDelete() { 
-		    if (window.confirm('Are you sure you want to delete this idea?'))
-		    {
-		        return true;
-		    }
-		    else
-		        return false;
-		};
-	});
-</script>
+{{/if }}

@@ -1,0 +1,17 @@
+{{ title }}
+
+<h2>Post a new idea!</h2>
+
+<form action="/article/add" type="text" id="ideaform" method="POST">
+	<p>
+		<label for="title">Your Idea Title:</label>
+		<input name="title" type="text" value="" id="title">
+	</p>
+	<p>
+		<label for="body">Idea:</label>
+		<textarea name="body" cols="40" rows="10" id="body"></textarea>
+	</p>
+	<p>
+		<input name='submit' type='submit' value="Send" id="submit">
+	</p>
+</form>

@@ -5,7 +5,11 @@ var hbs = require('hbs');
 var bodyParser = require('body-parser');
 var nodeMailer = require('nodemailer');
 var routes = require('./routes/routes');
-var ideaEngine = require('./ideas');
+var cookieParser = require('cookie-parser');
+var bcrypt = require('bcrypt-nodejs');
+var session = require('express-session');
+
+//var ideaEngine = require('./ideas');
 
 
  // initialize express 
@@ -19,6 +23,18 @@ app.use(express.static('static'));//tells app where to look for statuc files
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
+}));
+
+app.use(cookieParser('secret'));
+
+
+app.use(session({
+	//genid: function(req){
+	//	return genuuid()
+	//},
+	secret: 'nickqcage',
+	saveUninitialized: false,
+	resave: true
 }));
 
 app.use('/', routes); 
