@@ -4,17 +4,23 @@
   "description": "'idea app'",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"   
   },
   "author": "JoeC718",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
     "hbs": "^4.0.0",
     "mongoose": "^4.2.7",
     "nodemailer": "^0.7.1"
+  },
+  "engines": {
+    "node": "0.10.35"
   },
   "repository": "https://github.com/joeknows718/blog_app_express"
 }

@@ -17,5 +17,5 @@ var adminUser = new Schema({
 mongoose.model('ideas', Idea);
 mongoose.model('adminUser', adminUser);
 
-mongoose.connect('mongodb://localhost/blog-project');
+mongoose.connect('mongodb://joeknows718:tsab11211@ds039145.mongolab.com:39145/advancedjs');
 
