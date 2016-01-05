@@ -1,7 +1,14 @@
 <h1>{{ idea.title }}</h1>
 
-Published {{ idea.published }}
+Published {{ idea.date }}
 
 <p> 
 	{{ idea.body }}
 </p>
+
+{{#if user }}
+<div>
+	<a href="/article/{{idea.id}}/edit"><button type="button" class="btn btn-primary">Edit</button></a>
+	<a href="/article/{{idea.id}}/delete"><button type="button" class="btn btn-danger" >Delete</button></a>
+</div>	
+{{/if }}

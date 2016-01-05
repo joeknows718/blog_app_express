@@ -1,0 +1,27 @@
+<h1>Contact Me</h1>
+
+<div class="content">
+
+	{{#if msg }}
+			<div class='msgbox'>{{ msg }}</div> 
+	{{/if}}
+
+	<form action="/contact" type="text" id="contactus" method="POST">
+		<p>
+			<label for="name">Name:</label>
+			<input name="name" type="text" value="" id="name">
+		</p>
+		<p>
+			<label for="email">Email:</label>
+			<input name="email" type="text" value="" id="email">
+		</p>
+		<p>
+			<label for="message">Message:</label>
+			<textarea name="message" cols="40" rows="10" id="message"></textarea>
+		</p>
+		<p>
+			<input name='submit' type='submit' value="Send" id="submit">
+		</p>
+
+	</form> 
+</div>
