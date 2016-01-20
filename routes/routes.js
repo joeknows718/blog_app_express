@@ -173,7 +173,7 @@ routes.post('/login', function(req, res){
 
 
 routes.get('/logout', sessionCheck, function(req, res) {
-	request.session.destroy(function(){
+	req.session.destroy(function(){
 		return res.redirect('/');
 	})
 })
